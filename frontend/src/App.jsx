@@ -1,5 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 import NavBar from './components/NavBar';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 import CatalogPage from './pages/CatalogPage';
 import SelectionPage from './pages/SelectionPage';
 import AdminLoginPage from './pages/AdminLoginPage';
@@ -15,10 +16,38 @@ const App = () => (
       <Route path="/" element={<CatalogPage />} />
       <Route path="/selection" element={<SelectionPage />} />
       <Route path="/admin" element={<AdminLoginPage />} />
-      <Route path="/admin/dashboard" element={<AdminDashboardPage />} />
-      <Route path="/admin/import" element={<AdminImportPage />} />
-      <Route path="/admin/products" element={<AdminProductsPage />} />
-      <Route path="/admin/batches" element={<AdminBatchesPage />} />
+      <Route
+        path="/admin/dashboard"
+        element={(
+          <ProtectedAdminRoute>
+            <AdminDashboardPage />
+          </ProtectedAdminRoute>
+        )}
+      />
+      <Route
+        path="/admin/import"
+        element={(
+          <ProtectedAdminRoute>
+            <AdminImportPage />
+          </ProtectedAdminRoute>
+        )}
+      />
+      <Route
+        path="/admin/products"
+        element={(
+          <ProtectedAdminRoute>
+            <AdminProductsPage />
+          </ProtectedAdminRoute>
+        )}
+      />
+      <Route
+        path="/admin/batches"
+        element={(
+          <ProtectedAdminRoute>
+            <AdminBatchesPage />
+          </ProtectedAdminRoute>
+        )}
+      />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   </>

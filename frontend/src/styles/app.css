@@ -16,3 +16,30 @@ table { width: 100%; border-collapse: collapse; background: #fff; }
 th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
 .admin-links { display: flex; gap: 12px; flex-wrap: wrap; }
 @media (max-width: 640px) { .nav-inner { flex-direction: column; align-items: flex-start; } }
+
+.admin-login-form label {
+  display: block;
+  margin-top: 4px;
+  font-weight: 600;
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.form-error {
+  color: #b6002f;
+  background: #ffe9ef;
+  border: 1px solid #f3b1c3;
+  border-radius: 6px;
+  padding: 10px;
+}
+
+.form-success {
+  color: #056a32;
+  background: #e9f9ef;
+  border: 1px solid #9fdbb4;
+  border-radius: 6px;
+  padding: 10px;
+}
